@@ -30,7 +30,7 @@ func TestOneClickCommand(t *testing.T) {
 
 func TesOneClickListNoType(t *testing.T) {
 	withTestClient(t, func(config *CmdConfig, tm *tcMocks) {
-		tm.oneClick.EXPECT().List("").Return(testOneClickList)
+		tm.oneClick.EXPECT().List("").Return(testOneClickList, nil)
 		err := RunOneClickList(config)
 		assert.NoError(t, err)
 	})
